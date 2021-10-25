@@ -1,19 +1,15 @@
 /* eslint-disable no-nested-ternary */
 /* eslint-disable react/button-has-type */
-import React, { useState } from "react";
-import axios from "axios";
+import React from "react";
+import { useAllUsers } from "./hooks/useAllUsers";
 import { UserCard } from "./components/UserCard";
 import "./styles.css";
-import { User } from "./types/api/user";
-import { UserProfile } from "./types/userProfile";
 
 export default function App() {
+  const { getUsers, userProfiles, loading, error } = useAllUsers();
 
+  const onClickFetchUser = () => getUsers();
 
-
-  const onClickFetchUser = () => {
-    
-  };
   return (
     <div className="App">
       <button onClick={onClickFetchUser}>データ取得</button>
